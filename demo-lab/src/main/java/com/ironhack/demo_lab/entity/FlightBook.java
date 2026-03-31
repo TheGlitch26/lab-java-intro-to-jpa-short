@@ -11,50 +11,43 @@ public class FlightBook {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer bookingId;
 
-    @Column(nullable = false, name = "customer_id")
-    private Integer customerId;
-
-    @Column(nullable = false, name = "flight_id")
-    private Integer flightId;
-
-
     @ManyToOne
-    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "flight_id", insertable = false, updatable = false)
+    @JoinColumn(name = "flight_id")
     private Flight flight;
 
     public FlightBook() {
     }
 
-    public FlightBook(Integer customerId, Integer flightId) {
-        this.customerId = customerId;
-        this.flightId = flightId;
+    public FlightBook(Flight flight, Customer customer) {
+        this.flight = flight;
+        this.customer = customer;
     }
 
     public Integer getBookingId() {
         return bookingId;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public Integer getFlightId() {
-        return flightId;
-    }
-
     public void setBookingId(Integer bookingId) {
         this.bookingId = bookingId;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setFlightId(Integer flightId) {
-        this.flightId = flightId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 }
