@@ -13,6 +13,7 @@ public class Customer {
     @Column(name = "customer_name", nullable = false, length = 50)
     private String customerName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "customer_status", nullable = false)
     private CustomerStatus customerStatus = CustomerStatus.NONE;
 
