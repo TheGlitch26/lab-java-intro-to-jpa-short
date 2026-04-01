@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "flight_bookings")
-public class FlightBook {
+public class FlightBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,10 @@ public class FlightBook {
     @JoinColumn(name = "flight_id")
     private Flight flight;
 
-    public FlightBook() {
+    public FlightBooking() {
     }
 
-    public FlightBook(Flight flight, Customer customer) {
+    public FlightBooking(Flight flight, Customer customer) {
         this.flight = flight;
         this.customer = customer;
     }
